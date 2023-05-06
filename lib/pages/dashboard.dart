@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:godhra_community/colors/color_constant.dart';
 import 'package:godhra_community/components/appBar.dart';
 import 'package:godhra_community/components/containers.dart';
 import 'package:godhra_community/colors/gradient.dart';
 import 'package:godhra_community/components/toastClass.dart';
 import 'package:godhra_community/pages/drawer_pages/main_drawer.dart';
+import 'package:godhra_community/text/text_constant.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class Dashboard extends StatefulWidget {
@@ -127,73 +129,28 @@ class _DashboardState extends State<Dashboard> {
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Container(
-          height: deviceHeight! * 0.14,
-          // color: Colors.grey[700],
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Expanded(
-                child: Column(
-                  children: [
-                    Containers(
-                      textStyle: textstyle2,
-                      imagePath: 'assets/images/img_donor_icon.png',
-                      color: myGradient(Color.fromARGB(255, 199, 56, 56),
-                          Color.fromARGB(252, 226, 107, 107)),
-                      name: "Donor list",
-                    ),
-                  ],
-                ),
-              ),
-              Expanded(
-                child: Column(
-                  children: [
-                    Containers(
-                      textStyle: textstyle2,
-                      imagePath: 'assets/images/img_store_icon.png',
-                      color: myGradient(Color.fromARGB(100, 55, 187, 202),
-                          Color.fromARGB(252, 86, 214, 228)),
-                      name: "Store",
-                    ),
-                  ],
-                ),
-              ),
-              Expanded(
-                child: Column(
-                  children: [
-                    Containers(
-                      textStyle: textstyle2,
-                      imagePath: "assets/images/img_doctor_consultant_icon.png",
-                      color: myGradient(
-                          Color.fromARGB(
-                            255,
-                            231,
-                            157,
-                            70,
-                          ),
-                          Color.fromARGB(255, 242, 179, 105)),
-                      name: "Doctor Consultation",
-                    ),
-                  ],
-                ),
-              ),
-              Expanded(
-                child: Column(
-                  children: [
-                    Containers(
-                      textStyle: textstyle2,
-                      imagePath: "assets/images/img_discussion_icon.png",
-                      color: myGradient(Color.fromARGB(255, 222, 90, 111),
-                          Color.fromARGB(255, 234, 116, 135)),
-                      name: "Discussion",
-                    ),
-                  ],
-                ),
-              )
-            ],
-          ),
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            buttons(ColorConstant.fRowC1, TextConstant.fRowC1,
+                'assets/images/img_donor_icon.png', textstyle2, () {}),
+            buttons(ColorConstant.fRowC2, TextConstant.fRowC2,
+                'assets/images/img_store_icon.png', textstyle2, () {}),
+            buttons(
+                ColorConstant.fRowC3,
+                TextConstant.fRowC3,
+                'assets/images/img_doctor_consultant_icon.png',
+                textstyle2,
+                () {}),
+            buttons(
+              ColorConstant.fRowC4,
+              TextConstant.fRowC4,
+              'assets/images/img_discussion_icon.png',
+              textstyle2,
+              () {},
+            ),
+          ],
         ),
       ),
     );
@@ -203,67 +160,19 @@ class _DashboardState extends State<Dashboard> {
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Container(
-          height: deviceHeight! * 0.14,
-          // color: Colors.grey[700],
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Expanded(
-                child: Column(
-                  children: [
-                    Containers(
-                      textStyle: textstyle2,
-                      imagePath: 'assets/images/img_tv_icon.png',
-                      color: myGradient(Color.fromARGB(255, 196, 99, 153),
-                          Color.fromARGB(252, 211, 130, 175)),
-                      name: "Online TV",
-                    ),
-                  ],
-                ),
-              ),
-              Expanded(
-                child: Column(
-                  children: [
-                    Containers(
-                      textStyle: textstyle2,
-                      imagePath: 'assets/images/img_book_icon.png',
-                      color: myGradient(Color.fromARGB(255, 186, 201, 74),
-                          Color.fromARGB(252, 215, 228, 114)),
-                      name: "Godhra History",
-                    ),
-                  ],
-                ),
-              ),
-              Expanded(
-                child: Column(
-                  children: [
-                    Containers(
-                      textStyle: textstyle2,
-                      imagePath: "assets/images/img_hospital_icon.png",
-                      color: myGradient(Color.fromARGB(255, 108, 140, 191),
-                          Color.fromARGB(255, 129, 160, 208)),
-                      name: "Clinics and Hospitals",
-                    ),
-                  ],
-                ),
-              ),
-              Expanded(
-                child: Column(
-                  children: [
-                    Containers(
-                      textStyle: textstyle2,
-                      imagePath: "assets/images/img_hospital_icon.png",
-                      name: "Job Ads",
-                      color: myGradient(Color.fromARGB(100, 78, 180, 155),
-                          Color.fromARGB(255, 129, 206, 187)),
-                    ),
-                  ],
-                ),
-              )
-            ],
-          ),
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            buttons(ColorConstant.sRowC1, TextConstant.sRowC1,
+                'assets/images/img_tv_icon.png', textstyle2, () {}),
+            buttons(ColorConstant.sRowC2, TextConstant.sRowC2,
+                'assets/images/img_book_icon.png', textstyle2, () {}),
+            buttons(ColorConstant.sRowC3, TextConstant.sRowC3,
+                'assets/images/img_hospital_icon.png', textstyle2, () {}),
+            buttons(ColorConstant.sRowC4, TextConstant.sRowC4,
+                'assets/images/img_hospital_icon.png', textstyle2, () {})
+          ],
         ),
       ),
     );
@@ -280,71 +189,21 @@ class _DashboardState extends State<Dashboard> {
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Containers(
-                      textStyle: textStyle,
-                      imagePath: 'assets/images/img_notification_icon.png',
-                      color: myGradient(Color.fromARGB(255, 26, 167, 236),
-                          Color.fromARGB(255, 76, 192, 249)),
-                      name: "Notification",
-                    ),
-                  ],
-                ),
-              ),
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Containers(
-                      textStyle: textStyle,
-                      imagePath: 'assets/images/img_contact_icon.png',
-                      color: myGradient(Color.fromARGB(255, 198, 163, 121),
-                          Color.fromARGB(252, 212, 179, 139)),
-                      name: "Contacts",
-                    ),
-                  ],
-                ),
-              ),
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Containers(
-                      textStyle: textStyle,
-                      imagePath: "assets/images/img_request_icon.png",
-                      color: myGradient(Color.fromARGB(255, 233, 117, 92),
-                          Color.fromARGB(255, 245, 150, 129)),
-                      name: "Request",
-                      onTap: () {
-                        Navigator.pushNamed(
-                          context,
-                          '/requestPage',
-                        );
-                      },
-                    ),
-                  ],
-                ),
-              ),
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Containers(
-                      textStyle: textStyle,
-                      imagePath: "assets/images/img_settings_icon.png",
-                      color: myGradient(Color.fromARGB(255, 156, 156, 156),
-                          Color.fromARGB(252, 192, 193, 193)),
-                      name: "Settings",
-                      onTap: () {
-                        showToast('Under Development');
-                      },
-                    ),
-                  ],
-                ),
-              )
+              buttons(ColorConstant.tRowC1, TextConstant.tRowC1,
+                  'assets/images/img_notification_icon.png', textStyle, () {}),
+              buttons(ColorConstant.tRowC2, TextConstant.tRowC2,
+                  'assets/images/img_contact_icon.png', textStyle, () {}),
+              buttons(ColorConstant.tRowC3, TextConstant.tRowC3,
+                  'assets/images/img_request_icon.png', textStyle, () {
+                Navigator.pushNamed(
+                  context,
+                  '/requestPage',
+                );
+              }),
+              buttons(ColorConstant.tRowC4, TextConstant.tRowC4,
+                  'assets/images/img_settings_icon.png', textStyle, () {
+                showToast('Under Development');
+              }),
             ],
           ),
         ),
@@ -409,6 +268,30 @@ class _DashboardState extends State<Dashboard> {
           expansionFactor: 2,
           spacing: 5,
         ),
+      ),
+    );
+  }
+
+  Widget buttons(
+    LinearGradient color,
+    String name,
+    String imagePath,
+    TextStyle? textStyle,
+    VoidCallback onTap,
+  ) {
+    return Expanded(
+      child: Column(
+        children: [
+          GestureDetector(
+            onTap: onTap,
+            child: Containers(
+              textStyle: textStyle,
+              imagePath: imagePath,
+              color: color,
+              name: name,
+            ),
+          ),
+        ],
       ),
     );
   }

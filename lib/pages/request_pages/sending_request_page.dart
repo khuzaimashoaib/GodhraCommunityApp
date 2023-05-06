@@ -112,35 +112,36 @@ class _SendingRequestPageState extends State<SendingRequestPage> {
           style: TextStyle(color: ColorConstant.color, fontFamily: 'Ubuntu'),
           controller: ControLLer,
           decoration: InputDecoration(
-              isDense: true,
-              contentPadding: EdgeInsets.fromLTRB(10, 10, 0, 10),
-              border: OutlineInputBorder(
+            isDense: true,
+            contentPadding: EdgeInsets.fromLTRB(10, 10, 0, 10),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(5),
+              borderSide: BorderSide(
+                color: Colors.grey.shade600,
+              ),
+            ),
+            enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(5),
                 borderSide: BorderSide(
                   color: Colors.grey.shade600,
-                ),
-              ),
-              enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(5),
-                  borderSide: BorderSide(
-                    color: Colors.grey.shade600,
-                  )),
-              focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(5),
-                  borderSide: BorderSide(
-                    color: Colors.grey.shade600,
-                  )),
-              disabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(5),
-                  borderSide: BorderSide(
-                    color: Colors.grey.shade600,
-                  )),
-              hintText: text2,
-              hintStyle: TextStyle(
-                fontFamily: 'Ubuntu',
-                color: Colors.grey[600],
-                fontSize: 16,
-              )),
+                )),
+            focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(5),
+                borderSide: BorderSide(
+                  color: Colors.grey.shade600,
+                )),
+            disabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(5),
+                borderSide: BorderSide(
+                  color: Colors.grey.shade600,
+                )),
+            hintText: text2,
+            hintStyle: TextStyle(
+              fontFamily: 'Ubuntu',
+              color: Colors.grey[600],
+              fontSize: 16,
+            ),
+          ),
         ),
         SizedBox(height: 10),
       ],

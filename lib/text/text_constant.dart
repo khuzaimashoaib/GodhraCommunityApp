@@ -28,4 +28,17 @@ class TextConstant {
   static String hint4 = 'Enter password';
   static String label5 = 'Confirm Password';
   static String hint5 = "Enter confirm password";
+
+  static String fRowC1 = "Donor list";
+  static String fRowC2 = "Store";
+  static String fRowC3 = "Doctor Consultation";
+  static String fRowC4 = "Discussion";
+  static String sRowC1 = "Online TV";
+  static String sRowC2 = "Godhra History";
+  static String sRowC3 = "Clinics and Hospitals";
+  static String sRowC4 = "Job Ads";
+  static String tRowC1 = "Notifications";
+  static String tRowC2 = "Contacts";
+  static String tRowC3 = "Requests";
+  static String tRowC4 = "Settings";
 }
