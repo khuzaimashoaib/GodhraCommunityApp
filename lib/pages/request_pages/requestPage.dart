@@ -1,18 +1,45 @@
 import 'package:flutter/material.dart';
+import 'package:godhra_community/colors/color_constant.dart';
 import 'package:godhra_community/components/appBar.dart';
+import 'package:godhra_community/components/request/reqest_container.dart';
+import 'package:godhra_community/indicator/circularIndicator.dart';
 import 'package:godhra_community/pages/request_pages/sending_request_page.dart';
 
-class RequestPage extends StatelessWidget {
+class RequestPage extends StatefulWidget {
   const RequestPage({super.key});
 
   @override
+  State<RequestPage> createState() => _RequestPageState();
+}
+
+class _RequestPageState extends State<RequestPage> {
+  bool _showProgressIndicator = true;
+  bool _showAlertDialog = false;
+  late Future _future;
+
+  Future fetchData() {
+    return Future.delayed(const Duration(seconds: 2), () {});
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _future = fetchData().whenComplete(() {
+      if (!_showAlertDialog) {
+        setState(() {
+          _showProgressIndicator = false;
+        });
+      }
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    Color color = const Color.fromARGB(255, 25, 148, 172);
     Color colorBg = MediaQuery.of(context).platformBrightness == Brightness.dark
         ? Colors.grey.shade900
         : Colors.white;
     return Scaffold(
-      backgroundColor: color,
+      // backgroundColor: ColorConstant.color,
       appBar: AppBar(
         backgroundColor: colorBg,
         leading: IconButton(
@@ -22,46 +49,108 @@ class RequestPage extends StatelessWidget {
           },
         ),
         centerTitle: true,
-        title: AppBarTitle(color: color),
+        title: AppBarTitle(color: ColorConstant.color),
       ),
       body: SafeArea(
-        child: Center(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(20, 16, 20, 0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Requests',
-                      style: TextStyle(fontFamily: 'Ubuntu'),
-                    )
-                  ],
-                ),
+              Text(
+                'Requests',
+                style: TextStyle(
+                    fontWeight: FontWeight.normal, fontFamily: 'Ubuntu'),
               ),
-              Text('Request data:'),
-              SizedBox(height: 20),
-              FutureBuilder<dynamic>(
-                builder:
-                    (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
-                  if (snapshot.hasData) {
-                    return Text(
-                      '${snapshot.data['title']}',
-                      style: TextStyle(fontSize: 20),
-                    );
-                  } else if (snapshot.hasError) {
-                    return Text('${snapshot.error}');
-                  } else {
-                    return CircularProgressIndicator();
-                  }
-                },
+              SizedBox(height: 20.0),
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      RequestContainer(),
+                    ],
+                  ),
+                ),
               ),
             ],
           ),
         ),
       ),
+
+      // FutureBuilder(
+      //   future: _future,
+      //   builder: (context, snapshot) {
+      //     if (snapshot.connectionState == ConnectionState.done) {
+      //       if (snapshot.hasData) {
+      //         _showAlertDialog = true;
+      //       }
+      //       return ListView.builder(
+      //         itemCount: 10, // Replace with your actual data count
+      //         itemBuilder: (context, index) {
+      //           return ListTile(
+      //             title: Text('khuzaima'),
+      //           );
+      //         },
+      //       );
+      //     } else {
+      //       return Center(
+      //         child: Indicator(),
+      //       );
+      //     }
+      //   },
+      // ),
+      // if (_showAlertDialog)
+      //   AlertDialog(
+      //     content: Text('No request found'),
+      //     actions: [
+      //       TextButton(
+      //         onPressed: () {
+      //           Navigator.pop(context);
+      //         },
+      //         child: Text('OK'),
+      //       )
+      //     ],
+      //   ),
+      // FutureBuilder(
+      //   builder: (context, snapshot) {
+      //     if (snapshot.connectionState == ConnectionState.done) {
+      //       return ListView.builder(
+      //         itemCount: 10, // Replace with your actual data count
+      //         itemBuilder: (context, index) {
+      //           return ListTile(
+      //             title: Text('khuzaima'),
+      //           );
+      //         },
+      //       );
+      //     } else {
+      //       WidgetsBinding.instance!.addPostFrameCallback((_) {
+      //         showDialog(
+      //           context: context,
+      //           // barrierDismissible: true,
+      //           builder: (BuildContext context) {
+      //             return Center(
+      //               child: Indicator(),
+      //             );
+      //           },
+      //         );
+      //       });
+      //     }
+      //     return Center(
+      //       child: AlertDialog(
+      //         content: Text('No request found'),
+      //         actions: [
+      //           TextButton(
+      //             onPressed: () {
+      //               Navigator.pop(context);
+      //             },
+      //             child: Text('OK'),
+      //           )
+      //         ],
+      //       ),
+      //     );
+      //   },
+      // ),
+
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(

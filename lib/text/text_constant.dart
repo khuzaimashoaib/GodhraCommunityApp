@@ -37,8 +37,8 @@ class TextConstant {
   static String sRowC2 = "Godhra History";
   static String sRowC3 = "Clinics and Hospitals";
   static String sRowC4 = "Job Ads";
-  static String tRowC1 = "Notifications";
+  static String tRowC1 = "Notification";
   static String tRowC2 = "Contacts";
-  static String tRowC3 = "Requests";
+  static String tRowC3 = "Request";
   static String tRowC4 = "Settings";
 }

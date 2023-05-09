@@ -24,8 +24,6 @@ class _DashboardState extends State<Dashboard> {
   TextStyle? textStyle, textstyle2;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  Color color = const Color.fromARGB(255, 45, 156, 178);
-
   @override
   Widget build(BuildContext context) {
     Color colorBg = MediaQuery.of(context).platformBrightness == Brightness.dark
@@ -58,7 +56,7 @@ class _DashboardState extends State<Dashboard> {
         centerTitle: true,
         backgroundColor: colorBg,
 
-        title: AppBarTitle(color: color),
+        title: AppBarTitle(color: ColorConstant.color),
       ),
       drawer: MainDrawer(),
       body: SafeArea(
@@ -232,7 +230,7 @@ class _DashboardState extends State<Dashboard> {
             height: 115,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              color: color,
+              color: ColorConstant.color,
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -261,7 +259,7 @@ class _DashboardState extends State<Dashboard> {
         count: 2,
         effect: ExpandingDotsEffect(
           dotColor: Colors.grey,
-          activeDotColor: color,
+          activeDotColor: ColorConstant.color,
           dotHeight: 3,
           dotWidth: 15,
           radius: 0,
