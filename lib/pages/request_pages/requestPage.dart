@@ -13,25 +13,25 @@ class RequestPage extends StatefulWidget {
 }
 
 class _RequestPageState extends State<RequestPage> {
-  bool _showProgressIndicator = true;
-  bool _showAlertDialog = false;
-  late Future _future;
+  // bool _showProgressIndicator = true;
+  // bool _showAlertDialog = false;
+  // late Future _future;
 
-  Future fetchData() {
-    return Future.delayed(const Duration(seconds: 2), () {});
-  }
+  // Future fetchData() {
+  //   return Future.delayed(const Duration(seconds: 2), () {});
+  // }
 
-  @override
-  void initState() {
-    super.initState();
-    _future = fetchData().whenComplete(() {
-      if (!_showAlertDialog) {
-        setState(() {
-          _showProgressIndicator = false;
-        });
-      }
-    });
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   _future = fetchData().whenComplete(() {
+  //     if (!_showAlertDialog) {
+  //       setState(() {
+  //         _showProgressIndicator = false;
+  //       });
+  //     }
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {

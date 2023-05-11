@@ -163,7 +163,9 @@ class _DashboardState extends State<Dashboard> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             buttons(ColorConstant.sRowC1, TextConstant.sRowC1,
-                'assets/images/img_tv_icon.png', textstyle2, () {}),
+                'assets/images/img_tv_icon.png', textstyle2, () {
+              Navigator.pushNamed(context, '/onlineTV');
+            }),
             buttons(ColorConstant.sRowC2, TextConstant.sRowC2,
                 'assets/images/img_book_icon.png', textstyle2, () {}),
             buttons(ColorConstant.sRowC3, TextConstant.sRowC3,

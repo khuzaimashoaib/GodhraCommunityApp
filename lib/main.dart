@@ -6,6 +6,7 @@ import 'package:godhra_community/components/drawer/map_page.dart';
 import 'package:godhra_community/pages/dashboard.dart';
 import 'package:godhra_community/pages/drawer_pages/privacy_policy.dart';
 import 'package:godhra_community/pages/drawer_pages/profile_screen.dart';
+import 'package:godhra_community/pages/onlineTV/tv.dart';
 import 'package:godhra_community/pages/request_pages/requestPage.dart';
 import 'package:godhra_community/pages/splash.dart';
 
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
         '/requestPage': (context) => const RequestPage(),
         '/profile': (context) => ProfileView(),
         '/mapPage':(context) => MapPage(),
+        '/onlineTV':(context) => OnlineTV(),
       },
     );
   }
