@@ -1,24 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:godhra_community/colors/color_constant.dart';
-import 'package:godhra_community/components/onlineTV/TvContainer.dart';
 import 'package:godhra_community/components/searchBar.dart';
+import 'package:godhra_community/pages/Clinics_and_Hospital/ClinicContainer.dart';
 
-class OnlineTV extends StatefulWidget {
-  const OnlineTV({super.key});
+class ClinicAndHospital extends StatefulWidget {
+  const ClinicAndHospital({super.key});
 
   @override
-  State<OnlineTV> createState() => _OnlineTVState();
+  State<ClinicAndHospital> createState() => _ClinicAndHospitalState();
 }
 
-class _OnlineTVState extends State<OnlineTV> {
+class _ClinicAndHospitalState extends State<ClinicAndHospital> {
   TextEditingController searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    dynamic colorBg =
-        MediaQuery.of(context).platformBrightness == Brightness.dark
-            ? ThemeData.dark()
-            : ThemeData.light();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: ThemeData.dark().primaryColor,
@@ -29,29 +24,25 @@ class _OnlineTVState extends State<OnlineTV> {
           },
         ),
         centerTitle: true,
-        title: SearchBar(
-          searchController: searchController,
-        ),
+        title: SearchBar(searchController: searchController),
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(0, 16, 0, 0),
+          padding: const EdgeInsets.fromLTRB(20, 16, 20, 0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 20.0),
-                child: Text(
-                  'Channel List',
-                  style: TextStyle(
-                      fontWeight: FontWeight.normal, fontFamily: 'Ubuntu'),
-                ),
+              Text(
+                'Clinic and Hospital',
+                style: TextStyle(
+                    fontWeight: FontWeight.normal, fontFamily: 'Ubuntu'),
               ),
+              SizedBox(height: 10.0),
               Expanded(
                 child: ListView.builder(
                     itemCount: 10,
                     itemBuilder: (context, index) {
-                      return TvContainer();
+                      return ClinicContainer();
                     }),
               ),
             ],
@@ -60,8 +51,4 @@ class _OnlineTVState extends State<OnlineTV> {
       ),
     );
   }
-
-  
-
-
 }

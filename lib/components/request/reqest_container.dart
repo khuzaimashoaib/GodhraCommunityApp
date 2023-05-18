@@ -9,7 +9,6 @@ class RequestContainer extends StatelessWidget {
       children: [
         Container(
           width: double.infinity,
-          height: 170,
           decoration: BoxDecoration(
             border: Border(top: BorderSide(color: Colors.grey.shade500)),
             color: Colors.white,
@@ -56,18 +55,21 @@ class RequestContainer extends StatelessWidget {
                 ),
                 Box(0, 5),
                 Text(
-                  'Message :',
+                  'Message : jhgdsjhgsjfgasjgfuagd jhasdgfkashdf  ggfjhsdfhgdhjh  jhdbhds dgf dfg jag fshdgf sdaf ad',
                   style: TextStyle(fontFamily: 'Ubuntu', color: Colors.black),
                 ),
-                Divider(
-                  thickness: 1,
-                  color: Colors.grey.shade500,
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 30.0),
+                  child: Divider(
+                    thickness: 1,
+                    color: Colors.grey.shade500,
+                  ),
                 ),
               ],
             ),
           ),
         ),
-        SizedBox(height: 10),
+        Box(0, 10)
       ],
     );
   }

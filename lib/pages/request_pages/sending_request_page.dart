@@ -89,6 +89,7 @@ class _SendingRequestPageState extends State<SendingRequestPage> {
     Color color = const Color.fromARGB(255, 25, 148, 172);
     Color colour = Color.fromRGBO(248, 248, 248, 0.397);
     return Column(
+      mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

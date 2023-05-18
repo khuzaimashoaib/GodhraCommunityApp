@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 class MyThemes {
   static final darkTheme = ThemeData(
-    scaffoldBackgroundColor: Colors.grey.shade900,
+    // scaffoldBackgroundColor: Colors.grey.shade900,
     colorScheme: ColorScheme.dark(),
   );
 
   static final lightTheme = ThemeData(
-    scaffoldBackgroundColor: Colors.white,
+    // scaffoldBackgroundColor: Color.fromARGB(255, 221, 221, 221),
     colorScheme: ColorScheme.light(),
   );
 }

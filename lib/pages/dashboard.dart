@@ -88,7 +88,7 @@ class _DashboardState extends State<Dashboard> {
   Widget moveableSlider() {
     return Padding(
       padding: const EdgeInsets.only(
-        top: 20,
+        top: 10,
         left: 20,
         right: 20,
       ),
@@ -126,7 +126,7 @@ class _DashboardState extends State<Dashboard> {
   Widget startRow() {
     return Expanded(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
         child: Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -157,7 +157,7 @@ class _DashboardState extends State<Dashboard> {
   Widget middleRow() {
     return Expanded(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
         child: Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -169,7 +169,9 @@ class _DashboardState extends State<Dashboard> {
             buttons(ColorConstant.sRowC2, TextConstant.sRowC2,
                 'assets/images/img_book_icon.png', textstyle2, () {}),
             buttons(ColorConstant.sRowC3, TextConstant.sRowC3,
-                'assets/images/img_hospital_icon.png', textstyle2, () {}),
+                'assets/images/img_hospital_icon.png', textstyle2, () {
+              Navigator.pushNamed(context, '/clinicAndHospital');
+            }),
             buttons(ColorConstant.sRowC4, TextConstant.sRowC4,
                 'assets/images/img_hospital_icon.png', textstyle2, () {})
           ],
@@ -184,7 +186,7 @@ class _DashboardState extends State<Dashboard> {
       children: [
         pageDivider(),
         Padding(
-          padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+          padding: const EdgeInsets.fromLTRB(20, 0, 20, 5),
           child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -263,9 +265,9 @@ class _DashboardState extends State<Dashboard> {
           dotColor: Colors.grey,
           activeDotColor: ColorConstant.color,
           dotHeight: 3,
-          dotWidth: 15,
+          dotWidth: 16,
           radius: 0,
-          expansionFactor: 2,
+          expansionFactor: 02,
           spacing: 5,
         ),
       ),

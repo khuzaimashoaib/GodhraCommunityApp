@@ -7,46 +7,53 @@ class TvContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          width: double.infinity,
-          height: 100,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: Colors.white,
-          ),
-          child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 5.0),
+          child: Container(
+            height: 100,
+            child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              color: Colors.white,
+              elevation: 1,
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Icon(Icons.tv, color: Colors.black),
-                    SizedBox(width: 10),
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Icon(Icons.tv, color: Colors.black),
+                        SizedBox(width: 10),
+                        Text(
+                          'Title :',
+                          style: TextStyle(
+                              fontFamily: 'Ubuntu',
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                              color: Colors.black),
+                        ),
+                      ],
+                    ),
+                    Box(0, 5),
                     Text(
-                      'Title :',
-                      style: TextStyle(
-                          fontFamily: 'Ubuntu',
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                          color: Colors.black),
+                      'Country:',
+                      style:
+                          TextStyle(fontFamily: 'Ubuntu', color: Colors.black),
+                    ),
+                    Box(0, 5),
+                    Text(
+                      'Language:',
+                      style:
+                          TextStyle(fontFamily: 'Ubuntu', color: Colors.black),
                     ),
                   ],
                 ),
-                Box(0, 5),
-                Text(
-                  'Country:',
-                  style: TextStyle(fontFamily: 'Ubuntu', color: Colors.black),
-                ),
-                Box(0, 5),
-                Text(
-                  'Language:',
-                  style: TextStyle(fontFamily: 'Ubuntu', color: Colors.black),
-                ),
-              ],
+              ),
             ),
           ),
         ),

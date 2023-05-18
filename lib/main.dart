@@ -3,6 +3,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:godhra_community/colors/colors.dart';
 import 'package:godhra_community/colors/theme_provider.dart';
 import 'package:godhra_community/components/drawer/map_page.dart';
+import 'package:godhra_community/pages/Clinics_and_Hospital/clinic_and_hospital.dart';
 import 'package:godhra_community/pages/dashboard.dart';
 import 'package:godhra_community/pages/drawer_pages/privacy_policy.dart';
 import 'package:godhra_community/pages/drawer_pages/profile_screen.dart';
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
         '/profile': (context) => ProfileView(),
         '/mapPage':(context) => MapPage(),
         '/onlineTV':(context) => OnlineTV(),
+        '/clinicAndHospital':(context) => const ClinicAndHospital(),
       },
     );
   }

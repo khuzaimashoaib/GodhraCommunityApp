@@ -62,15 +62,13 @@ class _RequestPageState extends State<RequestPage> {
                 style: TextStyle(
                     fontWeight: FontWeight.normal, fontFamily: 'Ubuntu'),
               ),
-              SizedBox(height: 20.0),
+              SizedBox(height: 10.0),
               Expanded(
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      RequestContainer(),
-                    ],
-                  ),
-                ),
+                child: ListView.builder(
+                    itemCount: 10,
+                    itemBuilder: (context, index) {
+                      return RequestContainer();
+                    }),
               ),
             ],
           ),
