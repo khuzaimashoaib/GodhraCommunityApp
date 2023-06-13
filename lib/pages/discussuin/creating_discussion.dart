@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:godhra_community/colors/color_constant.dart';
-import 'package:godhra_community/components/appBar.dart';
-import 'package:godhra_community/pages/drawer_pages/profile_screen.dart';
 
-class SendingRequestPage extends StatefulWidget {
-  const SendingRequestPage({super.key});
+class DiscussionSendingRequestPage extends StatefulWidget {
+  const DiscussionSendingRequestPage({super.key});
 
   @override
-  State<SendingRequestPage> createState() => _SendingRequestPageState();
+  State<DiscussionSendingRequestPage> createState() =>
+      _DiscussionSendingRequestPageState();
 }
 
-class _SendingRequestPageState extends State<SendingRequestPage> {
+class _DiscussionSendingRequestPageState
+    extends State<DiscussionSendingRequestPage> {
   double? _deviceHeight, _deviceWidth;
 
   @override
@@ -18,15 +18,14 @@ class _SendingRequestPageState extends State<SendingRequestPage> {
     _deviceHeight = MediaQuery.of(context).size.height;
     _deviceWidth = MediaQuery.of(context).size.width;
 
-    TextEditingController _title = TextEditingController();
-    TextEditingController _message = TextEditingController();
+    TextEditingController message = TextEditingController();
 
-    Color colorBg = MediaQuery.of(context).platformBrightness == Brightness.dark
-        ? Colors.grey.shade900
-        : Colors.white;
+    // Color colorBg = MediaQuery.of(context).platformBrightness == Brightness.dark
+    //     ? Colors.grey.shade900
+    //     : Colors.white;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: colorBg,
+        backgroundColor: Colors.white,
         leading: IconButton(
           icon: Image.asset('assets/images/icn_back_black.png'),
           onPressed: () {
@@ -34,31 +33,42 @@ class _SendingRequestPageState extends State<SendingRequestPage> {
           },
         ),
         centerTitle: true,
-        title: AppBarTitle(),
+        title: Text(
+          'GODHRA COMMUNITY',
+          style: TextStyle(color: Color.fromARGB(255, 16, 204, 201)),
+        ),
       ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(35, 20, 35, 0),
-          child: Column(
-            children: [
-              sendRequesttxt(),
-              SizedBox(height: 20),
-              titleTextWidget(
-                text1: 'Title',
-                text2: 'Enter Title',
-                ControLLer: _title,
-                // minLines: 1,
-              ),
-              titleTextWidget(
-                  text1: 'Message',
-                  text2: 'Enter Message',
-                  ControLLer: _message,
-                  minLines: 7),
-              SizedBox(height: 10),
-              imageWidget(),
-              SizedBox(height: 20),
-              sendButton(),
-            ],
+          child: Center(
+            child: Column(
+              // crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text(
+                      'Create Discussion',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 15,
+                          fontFamily: 'Ubuntu'),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 10),
+                titleTextWidget(
+                    text1: 'Discussion Text',
+                    text2: 'Enter Discussion Text',
+                    ControLLer: message,
+                    minLines: 7),
+                const SizedBox(height: 10),
+                imageWidget(),
+                const SizedBox(height: 20),
+                sendButton(),
+              ],
+            ),
           ),
         ),
       ),
@@ -84,10 +94,7 @@ class _SendingRequestPageState extends State<SendingRequestPage> {
     bool? showCursor,
     int? minLines,
   }) {
-    Color color = const Color.fromARGB(255, 25, 148, 172);
-    Color colour = Color.fromRGBO(248, 248, 248, 0.397);
     return Column(
-      mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -107,31 +114,32 @@ class _SendingRequestPageState extends State<SendingRequestPage> {
           maxLines: null,
           showCursor: showCursor,
           onTap: ontap,
-          cursorColor: color,
-          style: TextStyle(color: ColorConstant.color, fontFamily: 'Ubuntu'),
+          cursorColor: ColorConstant.color,
+          style: TextStyle(color: Colors.black, fontFamily: 'Ubuntu'),
           controller: ControLLer,
           decoration: InputDecoration(
             isDense: true,
             contentPadding: EdgeInsets.fromLTRB(10, 10, 0, 10),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(5),
-              borderSide:
-                  BorderSide(color: Theme.of(context).colorScheme.secondary),
+              borderSide: BorderSide(
+                color: Colors.grey.shade600,
+              ),
             ),
             enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(5),
                 borderSide: BorderSide(
-                  color: Theme.of(context).colorScheme.secondary,
+                  color: Colors.grey.shade600,
                 )),
             focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(5),
                 borderSide: BorderSide(
-                  color: Theme.of(context).colorScheme.secondary,
+                  color: Colors.grey.shade600,
                 )),
             disabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(5),
                 borderSide: BorderSide(
-                  color: Theme.of(context).colorScheme.secondary,
+                  color: Colors.grey.shade600,
                 )),
             hintText: text2,
             hintStyle: TextStyle(
@@ -152,8 +160,11 @@ class _SendingRequestPageState extends State<SendingRequestPage> {
         Padding(
           padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
           child: GestureDetector(
+            onTap: (() {}),
             child: Image(
-              image: AssetImage('assets/images/add_img.png'),
+              image: AssetImage(
+                'assets/images/add_img.png',
+              ),
               height: 55,
               width: 55,
             ),
@@ -167,14 +178,15 @@ class _SendingRequestPageState extends State<SendingRequestPage> {
     return GestureDetector(
       onTap: () {},
       child: Container(
-        height: _deviceHeight! * 0.055,
+        // margin: EdgeInsets.only(left: 20),
+        height: _deviceHeight! * 0.060,
         width: _deviceWidth! * 0.7,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             color: ColorConstant.color),
         child: Center(
           child: Text(
-            'Send',
+            'Create Discussion',
             style: TextStyle(
               color: Colors.white,
               fontFamily: 'Ubuntu',

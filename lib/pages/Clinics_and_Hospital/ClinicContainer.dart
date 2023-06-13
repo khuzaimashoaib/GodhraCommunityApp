@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:godhra_community/colors/color_constant.dart';
 
-class ClinicContainer extends StatelessWidget {
+class ClinicContainer extends StatefulWidget {
+  @override
+  State<ClinicContainer> createState() => _ClinicContainerState();
+}
+
+class _ClinicContainerState extends State<ClinicContainer> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -9,7 +14,7 @@ class ClinicContainer extends StatelessWidget {
         Container(
           width: double.infinity,
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: Theme.of(context).colorScheme.primary,
             border: Border(
               top: BorderSide(
                 color: Color.fromARGB(255, 161, 157, 157),
@@ -28,10 +33,10 @@ class ClinicContainer extends StatelessWidget {
                       Text(
                         'Aqsa Clinic ',
                         style: TextStyle(
-                            fontFamily: 'Ubuntu',
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18.0,
-                            color: Colors.black),
+                          fontFamily: 'Ubuntu',
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18.0,
+                        ),
                         // softWrap: true,
                       ),
                       SizedBox(height: 5.0),

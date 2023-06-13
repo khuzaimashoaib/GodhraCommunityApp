@@ -26,10 +26,6 @@ class _DashboardState extends State<Dashboard> {
 
   @override
   Widget build(BuildContext context) {
-    Color colorBg = MediaQuery.of(context).platformBrightness == Brightness.dark
-        ? Colors.grey.shade900
-        : Colors.white;
-
     textstyle2 = TextStyle(
       fontFamily: 'Ubuntu',
       fontWeight: FontWeight.w100,
@@ -54,9 +50,8 @@ class _DashboardState extends State<Dashboard> {
         ),
         // iconTheme: IconThemeData(color: Colors.grey),
         centerTitle: true,
-        backgroundColor: colorBg,
 
-        title: AppBarTitle(color: ColorConstant.color),
+        title: AppBarTitle(),
       ),
       drawer: MainDrawer(),
       body: SafeArea(
@@ -100,15 +95,13 @@ class _DashboardState extends State<Dashboard> {
   }
 
   Widget recentNotification() {
-    return Expanded(
-      child: SizedBox(
-        height: deviceHeight! * 0.12,
-        child: Container(
-          width: deviceWidth! * 0.9,
-          decoration: BoxDecoration(
-            border: Border.all(color: Colors.grey),
-            borderRadius: BorderRadius.circular(10),
-          ),
+    return SizedBox(
+      height: deviceHeight! * 0.12,
+      child: Container(
+        width: deviceWidth! * 0.9,
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.grey),
+          borderRadius: BorderRadius.circular(10),
         ),
       ),
     );
@@ -146,7 +139,9 @@ class _DashboardState extends State<Dashboard> {
               TextConstant.fRowC4,
               'assets/images/img_discussion_icon.png',
               textstyle2,
-              () {},
+              () {
+                Navigator.pushNamed(context, '/discussion');
+              },
             ),
           ],
         ),
@@ -194,7 +189,9 @@ class _DashboardState extends State<Dashboard> {
               buttons(ColorConstant.tRowC1, TextConstant.tRowC1,
                   'assets/images/img_notification_icon.png', textStyle, () {}),
               buttons(ColorConstant.tRowC2, TextConstant.tRowC2,
-                  'assets/images/img_contact_icon.png', textStyle, () {}),
+                  'assets/images/img_contact_icon.png', textStyle, () {
+                Navigator.pushNamed(context, '/contacts');
+              }),
               buttons(ColorConstant.tRowC3, TextConstant.tRowC3,
                   'assets/images/img_request_icon.png', textStyle, () {
                 Navigator.pushNamed(
@@ -257,19 +254,17 @@ class _DashboardState extends State<Dashboard> {
   }
 
   Widget pageIndicator() {
-    return Container(
-      child: SmoothPageIndicator(
-        controller: controller,
-        count: 2,
-        effect: ExpandingDotsEffect(
-          dotColor: Colors.grey,
-          activeDotColor: ColorConstant.color,
-          dotHeight: 3,
-          dotWidth: 16,
-          radius: 0,
-          expansionFactor: 02,
-          spacing: 5,
-        ),
+    return SmoothPageIndicator(
+      controller: controller,
+      count: 2,
+      effect: ExpandingDotsEffect(
+        dotColor: Colors.grey,
+        activeDotColor: ColorConstant.color,
+        dotHeight: 3,
+        dotWidth: 16,
+        radius: 0,
+        expansionFactor: 02,
+        spacing: 5,
       ),
     );
   }

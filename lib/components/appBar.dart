@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:godhra_community/colors/color_constant.dart';
 
 class AppBarTitle extends StatelessWidget {
-  AppBarTitle({required this.color});
-  Color color;
   @override
   Widget build(BuildContext context) {
-    color = const Color.fromARGB(255, 45, 156, 178);
     return RichText(
         text: TextSpan(children: [
       TextSpan(
@@ -14,7 +12,7 @@ class AppBarTitle extends StatelessWidget {
             fontFamily: 'Ubuntu',
             fontSize: 18,
             fontWeight: FontWeight.w500,
-            color: color,
+            color: ColorConstant.color,
           )),
       TextSpan(
         text: 'COMMUNITY',
@@ -22,7 +20,7 @@ class AppBarTitle extends StatelessWidget {
             fontFamily: 'Ubuntu',
             fontSize: 18,
             fontWeight: FontWeight.w400,
-            color: color),
+            color: ColorConstant.color),
       )
     ]));
   }

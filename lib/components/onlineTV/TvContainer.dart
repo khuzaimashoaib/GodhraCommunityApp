@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
-class TvContainer extends StatelessWidget {
+class TvContainer extends StatefulWidget {
   const TvContainer({super.key});
 
+  @override
+  State<TvContainer> createState() => _TvContainerState();
+}
+
+class _TvContainerState extends State<TvContainer> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -15,7 +20,7 @@ class TvContainer extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
               ),
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.primary,
               elevation: 1,
               child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
@@ -27,29 +32,33 @@ class TvContainer extends StatelessWidget {
                     Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Icon(Icons.tv, color: Colors.black),
+                        Icon(
+                          Icons.tv,
+                        ),
                         SizedBox(width: 10),
                         Text(
                           'Title :',
                           style: TextStyle(
-                              fontFamily: 'Ubuntu',
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                              color: Colors.black),
+                            fontFamily: 'Ubuntu',
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
                         ),
                       ],
                     ),
                     Box(0, 5),
                     Text(
                       'Country:',
-                      style:
-                          TextStyle(fontFamily: 'Ubuntu', color: Colors.black),
+                      style: TextStyle(
+                        fontFamily: 'Ubuntu',
+                      ),
                     ),
                     Box(0, 5),
                     Text(
                       'Language:',
-                      style:
-                          TextStyle(fontFamily: 'Ubuntu', color: Colors.black),
+                      style: TextStyle(
+                        fontFamily: 'Ubuntu',
+                      ),
                     ),
                   ],
                 ),

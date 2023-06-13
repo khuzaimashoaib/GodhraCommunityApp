@@ -41,11 +41,6 @@ class _ProfileViewState extends State<ProfileView> {
       fontSize: 16,
       fontFamily: 'Ubuntu',
     );
-    Color color = const Color.fromARGB(255, 25, 148, 172);
-    Color colorBg = MediaQuery.of(context).platformBrightness == Brightness.dark
-        ? Colors.grey.shade900
-        : Colors.white;
-    // Color colour = Color.fromRGBO(248, 248, 248, 0.397);
     deviceHeight = MediaQuery.of(context).size.height;
     deviceWidth = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -58,9 +53,8 @@ class _ProfileViewState extends State<ProfileView> {
         ),
         // iconTheme: IconThemeData(color: Colors.grey),
         centerTitle: true,
-        backgroundColor: colorBg,
 
-        title: AppBarTitle(color: color),
+        title: AppBarTitle(),
       ),
       body: SingleChildScrollView(
         child: Column(

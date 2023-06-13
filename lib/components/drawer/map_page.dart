@@ -27,7 +27,7 @@ class _MapPageState extends State<MapPage> {
         ),
         centerTitle: true,
         backgroundColor: colorBg,
-        title: AppBarTitle(color: ColorConstant.color),
+        title: AppBarTitle(),
       ),
       body: Stack(
         children: [

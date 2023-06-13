@@ -16,7 +16,6 @@ class _ClinicAndHospitalState extends State<ClinicAndHospital> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: ThemeData.dark().primaryColor,
         leading: IconButton(
           icon: Image.asset('assets/images/icn_back_black.png'),
           onPressed: () {

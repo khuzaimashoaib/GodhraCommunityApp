@@ -20,8 +20,8 @@ class _OnlineTVState extends State<OnlineTV> {
             ? ThemeData.dark()
             : ThemeData.light();
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
-        backgroundColor: ThemeData.dark().primaryColor,
         leading: IconButton(
           icon: Image.asset('assets/images/icn_back_black.png'),
           onPressed: () {
@@ -60,8 +60,4 @@ class _OnlineTVState extends State<OnlineTV> {
       ),
     );
   }
-
-  
-
-
 }

@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:godhra_community/colors/color_constant.dart';
-import 'package:godhra_community/components/appBar.dart';
-import 'package:godhra_community/components/request/reqest_container.dart';
-import 'package:godhra_community/indicator/circularIndicator.dart';
-import 'package:godhra_community/pages/request_pages/sending_request_page.dart';
+import 'package:godhra_community/pages/discussuin/creating_discussion.dart';
 
-class RequestPage extends StatefulWidget {
-  const RequestPage({super.key});
+class DiscussionPage extends StatefulWidget {
+  const DiscussionPage({super.key});
 
   @override
-  State<RequestPage> createState() => _RequestPageState();
+  State<DiscussionPage> createState() => _DiscussionPageState();
 }
 
-class _RequestPageState extends State<RequestPage> {
+class _DiscussionPageState extends State<DiscussionPage> {
   // bool _showProgressIndicator = true;
   // bool _showAlertDialog = false;
   // late Future _future;
@@ -39,8 +36,9 @@ class _RequestPageState extends State<RequestPage> {
         ? Colors.grey.shade900
         : Colors.white;
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
+      // backgroundColor: ColorConstant.color,
       appBar: AppBar(
+        backgroundColor: Colors.white,
         leading: IconButton(
           icon: Image.asset('assets/images/icn_back_black.png'),
           onPressed: () {
@@ -48,8 +46,14 @@ class _RequestPageState extends State<RequestPage> {
           },
         ),
         centerTitle: true,
-        title: AppBarTitle(),
+        title: Text(
+          'GODHRA COMMUNITY',
+          style: TextStyle(
+            color: Color.fromARGB(255, 16, 204, 201),
+          ),
+        ),
       ),
+
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(20, 16, 20, 0),
@@ -57,18 +61,18 @@ class _RequestPageState extends State<RequestPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Requests',
+                'Discussions',
                 style: TextStyle(
                     fontWeight: FontWeight.normal, fontFamily: 'Ubuntu'),
               ),
               SizedBox(height: 10.0),
-              Expanded(
-                child: ListView.builder(
-                    itemCount: 10,
-                    itemBuilder: (context, index) {
-                      return RequestContainer();
-                    }),
-              ),
+              // Expanded(
+              //   child: ListView.builder(
+              //       itemCount: 10,
+              //       itemBuilder: (context, index) {
+              //         return creatediscussio();
+              //       }),
+              // ),
             ],
           ),
         ),
@@ -149,15 +153,18 @@ class _RequestPageState extends State<RequestPage> {
       // ),
 
       floatingActionButton: FloatingActionButton(
+        backgroundColor: ColorConstant.color,
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => SendingRequestPage()),
+            MaterialPageRoute(
+                builder: (context) => const DiscussionSendingRequestPage()),
           );
         },
         child: Image.asset(
-          'assets/images/img_request_icon.png',
+          'assets/images/icn_edit.png',
           height: 30,
+          color: Colors.white,
         ),
       ),
     );

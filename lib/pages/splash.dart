@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:godhra_community/pages/dashboard.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
@@ -11,16 +10,18 @@ class Splash extends StatefulWidget {
 class _SplashState extends State<Splash> {
   double? deviceHeight, deviceWidth;
 
-  Color color = const Color.fromARGB(255, 25, 148, 172);
-
   @override
   void initState() {
     super.initState();
-    Future.delayed(
+    _navigateToOnBoarding();
+  }
+
+  _navigateToOnBoarding() async {
+    await Future.delayed(
         const Duration(
           seconds: 3,
         ), () {
-      Navigator.pushReplacementNamed(context, '/dashboard');
+      Navigator.pushReplacementNamed(context, '/onBoarding');
     });
   }
 
@@ -30,11 +31,11 @@ class _SplashState extends State<Splash> {
     deviceWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      backgroundColor: ThemeData.dark().primaryColor,
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: SafeArea(
         child: Container(
             alignment: Alignment.center,
-            color: Colors.black,
+            // color: Colors.black,
             child: Column(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,

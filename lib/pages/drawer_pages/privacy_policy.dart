@@ -9,22 +9,18 @@ class PrivacyPolicy extends StatefulWidget {
 }
 
 class _PrivacyPolicyState extends State<PrivacyPolicy> {
- 
   double? deviceHeight, deviceWidth;
   TextStyle? textStyleH1, textStyleH2, textStyleH3, textStyleH4, textStyleText;
 
   @override
   Widget build(BuildContext context) {
-     Color color = const Color.fromARGB(255, 25, 148, 172);
-    Color colorBg = MediaQuery.of(context).platformBrightness == Brightness.dark
-        ? Colors.grey.shade900
-        : Colors.white;
     deviceHeight = MediaQuery.of(context).size.height;
     deviceWidth = MediaQuery.of(context).size.width;
 
-    textStyleH1 = const TextStyle(
+    textStyleH1 = TextStyle(
       fontSize: 32,
       fontWeight: FontWeight.bold,
+      
     );
 
     textStyleH2 = const TextStyle(
@@ -42,15 +38,13 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
       fontWeight: FontWeight.bold,
     );
 
-    textStyleText = const TextStyle(
+    textStyleText = TextStyle(
       fontSize: 16,
       fontWeight: FontWeight.normal,
     );
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor:colorBg,
-            
         leading: IconButton(
           icon: Image.asset('assets/images/icn_back_black.png'),
           onPressed: () {
@@ -58,7 +52,7 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
           },
         ),
         centerTitle: true,
-        title: AppBarTitle(color: color),
+        title: AppBarTitle(),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -320,7 +314,9 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
                   style: textStyleText,
                 ),
                 mySizedBox(0, 18),
-                dataBulletText('By email: support@daniyalsalim.info'),
+                dataBulletText(
+                  'By email: support@daniyalsalim.info',
+                ),
                 dataBulletText('By phone number: +923030307660'),
               ],
             ),
@@ -424,7 +420,13 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
                   children: [
                     TextSpan(
                       text: text,
-                      style: textStyleText,
+                      style: textStyleText!.copyWith(
+                        color: Theme.of(context).colorScheme.background,
+                      ),
+                      // style: TextStyle(
+                      // fontSize: 16,
+                      // fontWeight: FontWeight.normal,
+                      // ),
                     ),
                   ],
                 ),
