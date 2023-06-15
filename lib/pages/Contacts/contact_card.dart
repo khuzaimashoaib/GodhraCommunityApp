@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:godhra_community/colors/color_constant.dart';
+import 'package:godhra_community/colors/gradient.dart';
 
 class ContactCard extends StatelessWidget {
   const ContactCard({super.key});
@@ -18,7 +19,7 @@ class ContactCard extends StatelessWidget {
       child: Card(
         elevation: 0,
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
           child: Column(
             children: [
               txtAndImage(),
@@ -46,11 +47,11 @@ class ContactCard extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   fontSize: 18.0,
                 )),
-            SizedBox(height: 5),
+            const SizedBox(height: 5),
             Text(
-              "Number",
+              "Joint Secretary",
               style: TextStyle(
-                  fontSize: 14,
+                  fontSize: 16,
                   fontFamily: 'Ubuntu',
                   fontWeight: FontWeight.w500),
             ),
@@ -60,9 +61,12 @@ class ContactCard extends StatelessWidget {
             Text("Area :", style: TextStyle(color: ColorConstant.color)),
           ],
         ),
-        Image.asset(
-          'assets/images/img_copy_to_clip.png',
-          height: 50,
+        Container(
+          padding: const EdgeInsets.only(top: 10, right: 10),
+          child: Image.asset(
+            'assets/images/img_copy_to_clip.png',
+            height: 50,
+          ),
         ),
       ],
     );
@@ -75,19 +79,49 @@ class ContactCard extends StatelessWidget {
   }
 
   Widget phoneCall() {
-    return Column(
+    return Row(
+      mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Row(children: [
           Image.asset(
             'assets/images/icn_call_icon.png',
+            scale: 1,
           ),
-          Text('03xxxxxxxxx')
+          SizedBox(
+            width: 5,
+          ),
+          Text(
+            '0321xxxxxxx',
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
+          )
         ]),
-        ElevatedButton(
-            onPressed: () {},
-            child: Container(
-              child: Text('Call'),
-            ))
+        Row(
+          children: [
+            GestureDetector(
+              child: Container(
+                decoration: BoxDecoration(
+                  gradient: maleFemaleGradient(
+                    Color.fromARGB(255, 68, 213, 241),
+                    Color.fromARGB(255, 25, 148, 172),
+                  ),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                width: 100,
+                height: 30,
+                alignment: Alignment.center,
+                child: const Text(
+                  'Call',
+                  style: TextStyle(
+                      fontSize: 16, fontFamily: 'Ubuntu', color: Colors.white),
+                ),
+              ),
+            )
+          ],
+        ),
       ],
     );
   }

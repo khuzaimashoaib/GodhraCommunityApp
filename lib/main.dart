@@ -7,7 +7,7 @@ import 'package:godhra_community/onboarding.dart';
 import 'package:godhra_community/pages/Clinics_and_Hospital/clinic_and_hospital.dart';
 import 'package:godhra_community/pages/Contacts/ContactPage.dart';
 import 'package:godhra_community/pages/dashboard.dart';
-import 'package:godhra_community/pages/discussuin/discussion.dart';
+import 'package:godhra_community/pages/discussion/discussion.dart';
 import 'package:godhra_community/pages/drawer_pages/privacy_policy.dart';
 import 'package:godhra_community/pages/drawer_pages/profile_screen.dart';
 import 'package:godhra_community/pages/onlineTV/tv.dart';

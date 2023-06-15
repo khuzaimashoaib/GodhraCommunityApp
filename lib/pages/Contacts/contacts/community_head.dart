@@ -11,6 +11,7 @@ class CommunityHead extends StatefulWidget {
 
 class _CommunityHeadState extends State<CommunityHead> {
   final TextEditingController searchController = TextEditingController();
+  final ScrollController _scrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -32,10 +33,22 @@ class _CommunityHeadState extends State<CommunityHead> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            
             Text("Numbers"),
-         const   SizedBox(height: 10),
-            ContactCard(),
+            const SizedBox(height: 10),
+            Expanded(
+              child: ListView.separated(
+                  scrollDirection: Axis.vertical,
+                  controller: _scrollController,
+                  itemBuilder: (context, index) {
+                    return ContactCard();
+                  },
+                  separatorBuilder: (context, index) {
+                    return SizedBox(
+                      height: 10,
+                    );
+                  },
+                  itemCount: 10),
+            )
           ],
         ),
       ),

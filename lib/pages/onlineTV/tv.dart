@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:godhra_community/colors/color_constant.dart';
-import 'package:godhra_community/components/onlineTV/TvContainer.dart';
+import 'package:godhra_community/pages/onlineTV/TvContainer.dart';
 import 'package:godhra_community/components/searchBar.dart';
 
 class OnlineTV extends StatefulWidget {

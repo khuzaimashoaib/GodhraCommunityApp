@@ -52,7 +52,7 @@ class _DiscussionSendingRequestPageState
                       'Create Discussion',
                       style: TextStyle(
                           color: Colors.black,
-                          fontSize: 15,
+                          fontSize: 16,
                           fontFamily: 'Ubuntu'),
                     ),
                   ],
